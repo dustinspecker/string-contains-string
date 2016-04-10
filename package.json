@@ -1,0 +1,60 @@
+{
+  "name": "string-contains-string",
+  "version": "0.0.0-semantic-release",
+  "description": "Check if one of two strings contains the other",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint ./ --ignore-pattern node_modules/ --ignore-pattern lib",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "npm run lint && npm run compile && nyc ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dustinspecker/string-contains-string.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Dustin Specker",
+    "email": "DustinSpecker@DustinSpecker.com",
+    "url": "https://github.com/dustinspecker"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "babel-cli": "^6.4.0",
+    "babel-eslint": "^6.0.0-beta.6",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "coveralls": "^2.11.6",
+    "cz-conventional-changelog": "^1.1.5",
+    "eslint": "^2.4.0",
+    "eslint-config-dustinspecker": "^0.4.1",
+    "eslint-plugin-no-use-extend-native": "^0.3.1",
+    "nyc": "^6.1.1",
+    "semantic-release": "^4.3.5"
+  },
+  "ava": {
+    "files": [
+      "tests/test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "exclude": [
+      "tests"
+    ]
+  }
+}
